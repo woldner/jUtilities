@@ -36,6 +36,9 @@ function Addon:PLAYER_LOGIN()
 
   -- ensure key press on key down
   SetCVar('ActionButtonUseKeyDown', '1');
+
+  -- enable taint logging
+  SetCVar('taintLog', '1'); -- 2
 end
 
 -- call
