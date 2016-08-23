@@ -39,6 +39,20 @@ function Addon:PLAYER_LOGIN()
 
   -- enable taint logging
   SetCVar('taintLog', '1'); -- 2
+
+  -- disable secure ability toggle
+  SetCVar('secureAbilityToggle', 0);
+
+  -- enable Custom Lag Tolerance (0-400 ms)
+  SetCVar('reducedLagTolerance', 1);
+  SetCVar('MaxSpellStartRecoveryOffset', 50);
+
+  -- hide friendly/enemy player names/guild/titles
+  SetCVar('UnitNameFriendlyPlayerName', 0);
+  SetCVar('UnitNameEnemyPlayerName', 0);
+  SetCVar('UnitNamePlayerPVPTitle', 0);
+  SetCVar('UnitNamePlayerGuild', 0);
+  SetCVar('UnitNameGuildTitle', 0);
 end
 
 -- call
