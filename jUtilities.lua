@@ -2,6 +2,9 @@
 local AddonName, Addon = ...;
 
 local select = select;
+
+local CreateFrame = CreateFrame;
+local GetCVar = GetCVar;
 local GetNetStats = GetNetStats;
 
 local currentTolerance = GetCVar('maxSpellStartRecoveryOffset');
