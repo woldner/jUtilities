@@ -1,6 +1,12 @@
 -- locals and speed
 local AddonName, Addon = ...;
 
+local select = select;
+local GetNetStats = GetNetStats;
+
+local currentTolerance = GetCVar('maxSpellStartRecoveryOffset');
+local lastUpdateTime = 0;
+
 -- main
 function Addon:Load()
   do
@@ -9,6 +15,11 @@ function Addon:Load()
     -- set OnEvent handler
     eventHandler:SetScript('OnEvent', function(handler, ...)
         self:OnEvent(...);
+      end)
+
+    -- set OnUpdate handler
+    eventHandler:SetScript('OnUpdate', function(handler, ...)
+        self:OnUpdate(...);
       end)
 
     eventHandler:RegisterEvent('PLAYER_LOGIN');
@@ -22,6 +33,24 @@ function Addon:OnEvent(event, ...)
   if (action) then
     action(self, event, ...);
   end
+end
+
+function Addon:OnUpdate(elapsed)
+  lastUpdateTime = lastUpdateTime + elapsed;
+
+  -- limit update to once per second
+  if (lastUpdateTime < 1) then return end
+  lastUpdateTime = 0;
+
+  -- get world latency
+  local newTolerance = select(4, GetNetStats());
+
+  -- ignore empty value and prevent update spam
+  if (newTolerance == 0 or newTolerance == currentTolerance) then return end
+  currentTolerance = newTolerance;
+
+  -- set lag tolerance
+  SetCVar('maxSpellStartRecoveryOffset', newTolerance);
 end
 
 function Addon:PLAYER_LOGIN()
@@ -45,7 +74,8 @@ function Addon:PLAYER_LOGIN()
 
   -- enable Custom Lag Tolerance (0-400 ms)
   SetCVar('reducedLagTolerance', 1);
-  SetCVar('MaxSpellStartRecoveryOffset', 50);
+  -- with a value of 50
+  SetCVar('maxSpellStartRecoveryOffset', 50);
 
   -- hide friendly/enemy player names/guild/titles
   SetCVar('UnitNameFriendlyPlayerName', 0);
