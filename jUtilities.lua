@@ -86,6 +86,9 @@ function Addon:PLAYER_LOGIN()
   SetCVar('UnitNamePlayerPVPTitle', 0);
   SetCVar('UnitNamePlayerGuild', 0);
   SetCVar('UnitNameGuildTitle', 0);
+
+  -- enable LUA errors
+  SetCVar('scriptErrors', 1);
 end
 
 -- call
