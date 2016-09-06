@@ -80,13 +80,6 @@ function Addon:PLAYER_LOGIN()
   -- with a value of 50
   SetCVar('maxSpellStartRecoveryOffset', 50);
 
-  -- hide friendly/enemy player names/guild/titles
-  SetCVar('UnitNameFriendlyPlayerName', 0);
-  SetCVar('UnitNameEnemyPlayerName', 0);
-  SetCVar('UnitNamePlayerPVPTitle', 0);
-  SetCVar('UnitNamePlayerGuild', 0);
-  SetCVar('UnitNameGuildTitle', 0);
-
   -- enable LUA errors
   SetCVar('scriptErrors', 1);
 end
