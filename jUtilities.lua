@@ -77,7 +77,7 @@ function Addon:PLAYER_LOGIN()
 
   -- enable Custom Lag Tolerance (0-400 ms)
   SetCVar('reducedLagTolerance', 1);
-  -- with a value of 50
+  -- with a initial value of 50
   SetCVar('maxSpellStartRecoveryOffset', 50);
 
   -- enable LUA errors
