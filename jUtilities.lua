@@ -61,7 +61,7 @@ function Addon:OnUpdate(elapsed)
   lastUpdateTime = lastUpdateTime + elapsed;
 
   -- limit update to once per second
-  if (lastUpdateTime < 1) then return end
+  if (lastUpdateTime < 1.0) then return end
   lastUpdateTime = 0;
 
   -- get world latency

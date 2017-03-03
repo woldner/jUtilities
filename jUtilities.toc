@@ -1,4 +1,4 @@
-## Interface: 70000
+## Interface: 70100
 ## Title: jUtilities
 ## Notes: Various quality of life improvements
 ## Version: 1.0
