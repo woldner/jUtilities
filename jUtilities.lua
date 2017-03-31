@@ -72,7 +72,7 @@ function Addon:OnUpdate(elapsed)
   currentTolerance = newTolerance
 
   -- set lag tolerance
-  SetCVar('maxSpellStartRecoveryOffset', newTolerance)
+  SetCVar('spellQueueWindow', newTolerance)
 end
 
 function Addon:PLAYER_LOGIN()
@@ -96,10 +96,8 @@ function Addon:PLAYER_LOGIN()
   -- disable secure ability toggle
   SetCVar('secureAbilityToggle', 0)
 
-  -- enable Custom Lag Tolerance (0-400 ms)
-  SetCVar('reducedLagTolerance', 1)
-  -- with a initial value of 50
-  SetCVar('maxSpellStartRecoveryOffset', 50)
+  -- set lag tolerance (0-400 ms)
+  SetCVar('spellQueueWindow', 50)
 
   -- enable LUA errors
   SetCVar('scriptErrors', 1)
