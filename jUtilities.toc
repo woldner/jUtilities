@@ -1,7 +1,7 @@
-## Interface: 70200
+## Interface: 70300
 ## Title: jUtilities
 ## Notes: Various quality of life improvements
-## Version: 1.0
+## Version: 1.1
 ## Author: jwldnr
 
 jUtilities.lua
