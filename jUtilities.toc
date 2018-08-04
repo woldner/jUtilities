@@ -1,7 +1,7 @@
 ## Interface: 80000
 ## Title: jUtilities
 ## Notes: Various quality of life improvements
-## Version: 1.1
+## Version: 1.2
 ## Author: jwldnr
 
 jUtilities.lua
